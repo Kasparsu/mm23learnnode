@@ -14,6 +14,7 @@ export default {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+    assetModuleFilename: '[file]',
   },
   devServer: {
     static: {
@@ -58,6 +59,7 @@ export default {
               },
             },
           },
+          
         ],
       },
       {
@@ -72,7 +74,11 @@ export default {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   plugins: [
